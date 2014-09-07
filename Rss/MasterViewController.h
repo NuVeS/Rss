@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <NSXMLParserDelegate>
+{
+    NSXMLParser* parser;
+    NSMutableData *rssData;
+    NSMutableArray *titles;
+    
+    NSMutableString *curDescription;
+    NSString *curElement;
+    NSMutableString *curTitle;
+    NSMutableString *curDate;
+    
+}
+-(void)updateList:(id)sender;
+
+//@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

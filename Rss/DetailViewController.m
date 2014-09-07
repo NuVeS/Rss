@@ -19,7 +19,9 @@
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+        self.navigationItem.title = [newDetailItem objectForKey:@"title"];
+        _detailItem = [newDetailItem objectForKey:@"description"];
+        NSLog(@"%@", _detailItem);
         
         // Update the view.
         [self configureView];
@@ -31,7 +33,8 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        //self.detailDescriptionLabel.text = self.detailItem;
+        self.textView.text = self.detailItem;
     }
 }
 
